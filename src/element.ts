@@ -165,7 +165,7 @@ export default class KenBurnsCarousel extends HTMLElement {
     private _zCounter: number = 0;
 
     /**
-     * The duration of the crossfading animation in millseconds.
+     * The duration of the crossfading animation in milliseconds.
      *
      * Must be smaller than the slide duration. Defaults to 2500ms.
      * This can also be set via the `fade-duration`-attribute.
@@ -214,7 +214,7 @@ export default class KenBurnsCarousel extends HTMLElement {
     }
 
     /**
-     * The duration of the sliding (or ken burns) animation in millseconds.
+     * The duration of the sliding (or ken burns) animation in milliseconds.
      *
      * Must be greater than or equal to the fade duration. Defaults to 20s.
      * This can also be set via the `slide-duration`-attribute.
@@ -308,7 +308,7 @@ export default class KenBurnsCarousel extends HTMLElement {
             const next = document.createElement('img') as HTMLImageElement;
             next.src = images[nextIndex];
 
-            this._timeout = setTimeout(
+            this._timeout = window.setTimeout( // changed to window.setTimeout on 2020-04-04
                 () => insert(nextIndex, next),
                 this.slideDuration - this.fadeDuration,
             );
